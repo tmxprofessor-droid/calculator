@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Calculator Web App</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Finance Calculator</h1>
+    <button id="theme-toggle" title="Toggle Light/Dark Mode">🌙</button>
+  </header>
+  <nav>
+    <button class="tab-btn active" data-tab="home-loan">🏠 Home Loan EMI</button>
+    <button class="tab-btn" data-tab="personal-loan">💳 Personal Loan EMI</button>
+    <button class="tab-btn" data-tab="sip">📈 SIP Calculator</button>
+    <button class="tab-btn" data-tab="fd">💰 FD Calculator</button>
+  </nav>
+  <main>
+    <section id="home-loan" class="calc-card active">
+      <h2>Home Loan EMI Calculator</h2>
+      <form autocomplete="off">
+        <label>Loan Amount <input type="number" min="1" step="any" id="hl-amount" placeholder="e.g. 500000" /></label>
+        <label>Interest Rate (annual %) <input type="number" min="0.1" step="any" id="hl-rate" placeholder="e.g. 7.5" /></label>
+        <label>Tenure (years) <input type="number" min="1" max="30" step="1" id="hl-tenure" placeholder="e.g. 20" /></label>
+        <div class="actions">
+          <button type="button" id="hl-calc">Calculate</button>
+          <button type="button" id="hl-reset">Reset</button>
+          <button type="button" id="hl-pdf">Download PDF</button>
+        </div>
+      </form>
+      <div class="result" id="hl-result"></div>
+      <canvas id="hl-chart" height="170"></canvas>
+    </section>
+
+    <section id="personal-loan" class="calc-card">
+      <h2>Personal Loan EMI Calculator</h2>
+      <form autocomplete="off">
+        <label>Loan Amount <input type="number" min="1" step="any" id="pl-amount" placeholder="e.g. 100000" /></label>
+        <label>Interest Rate (annual %) <input type="number" min="0.1" step="any" id="pl-rate" placeholder="e.g. 12" /></label>
+        <label>Tenure (years) <input type="number" min="1" max="7" step="1" id="pl-tenure" placeholder="e.g. 5" /></label>
+        <div class="actions">
+          <button type="button" id="pl-calc">Calculate</button>
+          <button type="button" id="pl-reset">Reset</button>
+          <button type="button" id="pl-pdf">Download PDF</button>
+        </div>
+      </form>
+      <div class="result" id="pl-result"></div>
+      <canvas id="pl-chart" height="170"></canvas>
+    </section>
+
+    <section id="sip" class="calc-card">
+      <h2>SIP Calculator</h2>
+      <form autocomplete="off">
+        <label>Monthly Investment <input type="number" min="1" step="any" id="sip-amount" placeholder="e.g. 5000" /></label>
+        <label>Expected Annual Return (%) <input type="number" min="0.1" step="any" id="sip-rate" placeholder="e.g. 12" /></label>
+        <label>Investment Duration (years) <input type="number" min="1" max="40" step="1" id="sip-tenure" placeholder="e.g. 15" /></label>
+        <div class="actions">
+          <button type="button" id="sip-calc">Calculate</button>
+          <button type="button" id="sip-reset">Reset</button>
+          <button type="button" id="sip-pdf">Download PDF</button>
+        </div>
+      </form>
+      <div class="result" id="sip-result"></div>
+      <canvas id="sip-chart" height="170"></canvas>
+    </section>
+
+    <section id="fd" class="calc-card">
+      <h2>FD Calculator</h2>
+      <form autocomplete="off">
+        <label>Principal Amount <input type="number" min="1" step="any" id="fd-amount" placeholder="e.g. 100000" /></label>
+        <label>Interest Rate (annual %) <input type="number" min="0.1" step="any" id="fd-rate" placeholder="e.g. 6.5" /></label>
+        <label>Time Period (years) <input type="number" min="1" max="20" step="1" id="fd-tenure" placeholder="e.g. 5" /></label>
+        <div class="actions">
+          <button type="button" id="fd-calc">Calculate</button>
+          <button type="button" id="fd-reset">Reset</button>
+          <button type="button" id="fd-pdf">Download PDF</button>
+        </div>
+      </form>
+      <div class="result" id="fd-result"></div>
+      <canvas id="fd-chart" height="170"></canvas>
+    </section>
+  </main>
+  <footer>
+    <p>Made with ❤️ for Finance</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
